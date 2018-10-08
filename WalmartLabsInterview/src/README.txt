@@ -1,4 +1,3 @@
-# Walmart-labs-Drone-Delivery
 ==================================
 Drone Delivery Challenge         |
 ==================================
