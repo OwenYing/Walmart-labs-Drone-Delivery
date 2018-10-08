@@ -1,11 +1,10 @@
 # Walmart-labs-Drone-Delivery
-==================================
-Drone Delivery Challenge         |
-==================================
+```
 Author: Tiancheng(Owen) Ying
 Date: 09/17/2018
-==================================
-Usage(Jar File): 
+```
+### Usage(Jar File): 
+```
     java -jar DroneDelivery.jar -input input_file_path [-output output_file_path] [-scheduler scheduler_type] [-print Y/N]
 Usage(.class File): 
     java iogithubowenying.test.Test -input input_file_path [-output output_file_path] [-scheduler scheduler_type] [-print Y/N]
@@ -18,8 +17,10 @@ Options:
                  unfair_limited , (unfair mode + limited mode)
     -print     : print result in terminal or not. "Y" print; "N" not print, default as "N"
 
-==================================
-Compile:
+```
+
+### Compile:
+```
 	1. As Eclipse Project:
 		|-- Import Project into Eclipse
 		|-- Compile
@@ -44,9 +45,10 @@ Compile:
 		|-- Run
 			|-- Follows the Usage of .class File
 
+```
 
-==================================
-Assumptions:
+### Assumptions:
+```
 	1. OrderDirection format strictly follows: N5S10.
 	2. OrderTime always within a day, since there is no date information.
 	3. Orders come as a data stream, you never know when and what is the next order.
@@ -61,10 +63,10 @@ Assumptions:
 	9. When meeting the situation: only one order comes, the delivery time > 3 hours(Must be detractors). 
 	   Instead of deliver it at the very last, the scheduler is going to deliver this since the scheduler
 	   doesn't know when is the next order's going to come.
-		
+```
 
-==================================
-Dynamic Input Schedule Algorithm:
+### Dynamic Input Schedule Algorithm:
+```
     When only 1 order comes, deliver; When more than 1 order is waiting, do the shortest
      |--The reason when only one order comes then deliver, is that you never know when will the next 
        order come. So you need to deliver it. 
@@ -72,10 +74,11 @@ Dynamic Input Schedule Algorithm:
        an order, always deliver the shortest. The reason is if you want to make more people
        wait less time, you need to deliver short distance order, which can make others wait
        for the shortest time; 
+```
 
-==================================
-Implementation:
-	|-- Use a queue to store the tasks (which actually simulate input task stream)
+### Implementation:
+```
+    |-- Use a queue to store the tasks (which actually simulate input task stream)
     |-- Use a Priority Queue to store waiting tasks, the task with the shorter distance
         	    comes first.
     |-- When PriorityQueue is empty(No task at all), poll task queue(One new task comes) and offer to PriorityQueue
@@ -85,18 +88,20 @@ Implementation:
         		(Calculate the finish time of current delivery, poll task queue's task if they come before the 
              finish time, then offer them to waiting queue, which is PriorityQueue)
 
+```
 
-==================================
-Graph Example:
-   				     --------------------                          -----------------------------
-  User  <--Deliver	   WaitingTasksQueue      <--Offer tasks               Upcoming Tasks
-   					 ---------------------                         -----------------------------
-                         Ascending                                Simulate Continuously Coming Tasks
+### Graph Example:
+```
+   		          --------------------                          -----------------------------
+  User  <--Deliver	    WaitingTasksQueue      <--Offer tasks               Upcoming Tasks
+   			  ---------------------                         -----------------------------
+                               Ascending                                Simulate Continuously Coming Tasks
 
+```
 
-==================================
-Hierarchical Structure:
+### Hierarchical Structure:
 	
+```
 	Order(I)           -->      DroneOrder
 	OrderDirection(I)  -->      DroneOrderDirection
 	OrderID(I)         -->      DroneOrderID
@@ -116,8 +121,10 @@ Hierarchical Structure:
 	
   I: Interface, T: Tool class
 
-==================================
-To be completed in the future:
+```
+
+### To be completed in the future:
+```
 	1. Starve situation
 	2. Time outside of 6:00am - 10:00pm  need to wait till the next day
 	3. Should work under -- Different ID format; Different position format; Different timestamp format
@@ -145,14 +152,4 @@ To be completed in the future:
 	   since long task wait for t/2, the shorter task now becomes detractors. The solution to this problem
 	   is to calculate the possibilities of wait or not wait situation, and choose whether use wait or not.
 	   
-==================================	
-	test the program
-	review the whole program --> whole structure and logic
-  3.design pattern + OOD + database + JS
-  1.resume
-    leetcode
-    multi-thread
-  2.java fundamental --> java course source code
-    why walmart? what can I bring
-    behavior questions
-    review schedulers, how to extend the abilities
+```	
